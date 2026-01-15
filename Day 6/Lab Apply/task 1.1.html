@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="helpers.js"></script>
+</head>
+<body>
+
+
+
+
+    <script>
+        var ch = open("task 1.1 child.html", "", "width=500; height=500;");
+        let i = 0;
+        var text = "typing message";
+        var id = setInterval(function()
+        {
+            if (i < text.length)
+            {
+                ch.document.getElementById("1").textContent += text[i];
+                console.log(text[i])
+                console.log(ch.document.getElementById("1").textContent) // textContent writes the raw text
+                i++
+            }
+            else
+            {
+                clearInterval(id);
+                setTimeout(function()
+                {
+                    ch.close();
+                }, 3000);
+            }
+        }, 200);
+    </script>
+
+    <script>
+        var ch = open("task 1.1 child.html", "", "width=500; height=500;");
+        var text = "typing message";
+        for (let i = 0; i < text.length; i++)
+        {
+            //null.innerText
+            ch.document.getElementById("1").innerText += text[i];
+            sleep_for(500);   
+        }
+        sleep_for(3000);
+        ch.close();
+        
+    </script>
+</body>
+</html>
+<!-- 
+//onload
+//blocking is bad -> no live adding paragraph
+//innerText bad with space
+-->

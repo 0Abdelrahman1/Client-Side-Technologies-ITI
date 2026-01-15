@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table, td {
+        border: solid red 3px;
+        border-collapse: collapse;
+        font-weight: bold;
+    }
+    td {
+        padding: 10px;
+    }
+    div#Intrst { text-align: center; }
+    textarea {resize: none;}
+</style>
+<body>
+    <table >
+        <caption>
+            <b><u>Registration Form</u></b>
+        </caption>
+        <form action="login.html">
+            <tr>
+                <td>
+                    <label for="fn">First Name</label>
+                </td>
+                <td>
+                    <input type="text" name="fn" id="fn" placeholder="Enter your first name">
+                </td>
+            </tr>
+                <td>
+                    <label for="ln">Last Name</label>
+                </td>
+                <td>
+                    <input type="text" name="ln" id="ln" placeholder="Enter your last name">
+                </td>
+            <tr>
+                <td>
+                    <label for="eml">Email</label>
+                </td>
+                <td>
+                    <input type="email" name="eml" id="eml" placeholder="Enter your email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="pswd">Password</label>
+                </td>
+                <td>
+                    <input type="password" id="pswd" name="pswd" placeholder="Enter your password">
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2">
+                    <label for="">Gender</label>
+                </td>
+                <td>
+                    <input type="radio" id="gn_m" name="gn" value="Male">
+                    <label for="gn_m">Male</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" id="gn_f" name="gn" value="Female">
+                    <label for="gn_f">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="sc">country</label>
+                </td>
+                <td>
+                    <select name="" id="sc" >
+                        <option value="">Select a Country..</option>
+                        <optgroup label="Africa">
+                            <option value="">Egypt</option>
+                            <option value="">Sudan</option>
+                            <option value="">Libya</option>
+                            <option value="">Tunisia</option>
+                            <option value="">Moroco</option>
+                        </optgroup>
+                        <optgroup label="Europe" disabled>
+                            <option value="">Italy</option>
+                            <option value="">Sweden</option>
+                            <option value="">Spain</option>
+                        </optgroup>
+                        <optgroup label="Asia">
+                            <option value="">Palestine</option>
+                            <option value="">South Korea</option>
+                            <option value="">India</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+                <td>
+                    <label for="bd">Birthday</label>
+                </td>
+                <td><input type="date" name="" id=""></td>
+            <tr>
+                <td colspan="2"><div id="Intrst"><u>Interests</u></div></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                <div>
+                    <input type="checkbox" name="sprt" id="sprt">
+                    <label for="sprt">Sports</label>
+                    <input type="checkbox" name="msic" id="msic">
+                    <label for="msic">Music</label>
+                    <input type="checkbox" name="fshn" id="fshn">
+                    <label for="fshn">Fashion</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="rdng" id="rdng">
+                    <label for="">Reading</label>
+                    <input type="checkbox" name="shpng" id="shpng">
+                    <label for="">Shopping</label>
+                    <input type="checkbox" name="mves" id="mves">
+                    <label for="">Movies</label>
+                </div>
+                </td>
+            </tr>
+                <td colspan="2"><div id="Intrst"><u>Bio</u></div></td>
+            <tr>
+                <td colspan="2">
+                    <textarea name="textarea" rows="5" cols="30" minlength="10" maxlength="20">
+                        Write something here…
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Register.." />
+                    <input type="reset" value="clear.." />
+                </td>
+            </tr>
+            
+        </form>
+    </table>
+</body>
+</html>

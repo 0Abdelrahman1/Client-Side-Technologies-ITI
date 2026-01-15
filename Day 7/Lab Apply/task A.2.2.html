@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="task A.1.html">
+        <input type="text">
+    </form>
+    <script>
+        var textBox = document.forms[0].elements[0];
+        var custEvent = new Event("AFK"), id;
+        textBox.addEventListener("AFK", function afk()
+        {
+            clearTimeout(id);
+            id = setTimeout(function fun()
+            {
+                alert("Hey, Are You Still There ?")
+                id = setTimeout(fun, 30000);
+            }, 30000)
+        })
+
+        textBox.dispatchEvent(custEvent);
+        textBox.addEventListener("input", function () {
+            textBox.dispatchEvent(custEvent);
+        })
+
+
+        
+    </script>
+</body>
+</html>

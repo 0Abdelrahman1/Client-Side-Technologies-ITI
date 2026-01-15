@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="Tasks\TaskResources\marbels\marble1.jpg">
+    <img src="Tasks\TaskResources\marbels\marble1.jpg">
+    <img src="Tasks\TaskResources\marbels\marble1.jpg">
+    <img src="Tasks\TaskResources\marbels\marble1.jpg">
+    <img src="Tasks\TaskResources\marbels\marble1.jpg">
+</body>
+<script>
+    for (i in document.images)
+        document.images[i].onmouseover = stopAnimation,
+        document.images[i].onmouseout = startAnimation;
+    let id, cur = 4, size = 5;
+    function stopAnimation()
+    {
+        clearInterval(id);
+    }
+    function startAnimation()
+    {
+        function ani()
+        {
+            document.images[cur].src = "Tasks\\TaskResources\\marbels\\marble1.jpg"
+            cur++;
+            cur %= size;
+            document.images[cur].src = "Tasks\\TaskResources\\marbels\\marble3.jpg"
+        }
+        ani();
+        id = setInterval(ani, 1000)
+    }
+    startAnimation();
+</script>
+</html>

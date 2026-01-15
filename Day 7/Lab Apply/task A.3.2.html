@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        addEventListener("keydown", function ()
+        {
+            console.log("KeyDown Event Detected : ", event.ctrlKey ? "CTRL + " : "", event.code);
+            if (event.ctrlKey && ["KeyS", "KeyD","KeyR","KeyF"].includes(event.code))
+                event.preventDefault();
+        })
+    </script>
+</body>
+</html> 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="b1" type="button">Next</button>
+    <button id="b2" type="button">Previous</button>
+    <button id="b3" type="button">SlideShow</button>
+    <button id="b4" type="button">Stop</button>
+    <br>
+    <br>
+    <br>
+    <img src="" width="150"/>
+</body>
+<script>
+    let cur = 0, size = 6;
+    let path = "Tasks\\TaskResources\\SlideShow\\";
+    let id;
+    document.images[0].src = path + "1.jpg";
+    document.getElementById("b1").onclick = function ()
+    {
+        cur++;
+        if (cur == size)
+            cur--;
+        document.images[0].src = path + (cur + 1) + ".jpg";
+    };
+    document.getElementById("b2").onclick = function ()
+    {
+        cur--;
+        if (cur == -1)
+            cur++;
+        document.images[0].src = path + (cur + 1) + ".jpg";
+    };
+    document.getElementById("b3").onclick = function ()
+    {
+        if (id) clearInterval(id);
+        id = setInterval(function()
+        {
+            cur++;
+            cur %= size;
+            document.images[0].src = path + (cur + 1) + ".jpg";
+        }, 1000);
+    };
+    document.getElementById("b4").onclick = function ()
+    {
+        clearInterval(id);
+        id = undefined
+    };
+    
+    
+</script>
+</html>

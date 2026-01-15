@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="d1"></div>
+
+    <script>
+            let q = document.location.search.substr(1)
+            let qa = q.split("&")
+            let info = {}
+            for (i in qa)
+            {
+                p = qa[i].split("=")
+                for (j in p)
+                p[j] = p[j].replaceAll("%40", "@").replaceAll("+", " ");
+            let label = p[0]
+            let value = p[1]
+            info[label] = value;
+            }
+            let ht = "<h1> Hello " + info["job title"] + " " + info["name"] + "</h1>"
+            for (label in info)
+                ht += "<p>" + label + " : " + info[label] + "</p>"
+            document.getElementById("d1").innerHTML = ht;
+    </script>
+</body>
+</html>

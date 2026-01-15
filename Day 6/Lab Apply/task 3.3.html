@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(1)"></td>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(2)"></td>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(3)"></td>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(4)"></td>
+        </tr>
+        <tr>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(5)"></td>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(6)"></td>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(7)"></td>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(8)"></td>
+        </tr>
+        <tr>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(9)"></td>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(10)"></td>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(11)"></td>
+            <td><img src="Tasks\TaskResources\memory Game\Moon.gif" onclick="show(12)"></td>
+        </tr>
+    </table>
+
+    <script>
+
+        let path = "Tasks\\TaskResources\\memory Game\\";
+        let arr = ["Moon","2","5","3","4","5","1","1","2","3","6","6","4"]
+        let cpy = [0, 8, 5, 9, 12, 2, 7, 6, 1, 3, 11, 10, 4]
+        let lst = 0, plst = 0, id;
+        function show(clickedImg)
+        {
+            if (!document.images[clickedImg - 1].src.endsWith("Moon.gif")) return;
+            if (lst && plst)
+            {
+                clearTimeout(id)
+                document.images[lst - 1].src =  path + arr[0] + ".gif";
+                document.images[plst - 1].src = path + arr[0] + ".gif";
+                plst = lst = 0;
+            }
+
+            plst = lst;
+            lst = clickedImg;
+            document.images[lst - 1].src = path + arr[lst] + ".gif";
+            if (!plst) return;
+
+            if (cpy[plst] != lst)
+            {
+                id = setTimeout(function () 
+                {
+                    document.images[plst - 1].src = path + arr[0] + ".gif";
+                    document.images[lst - 1].src = path + arr[0] + ".gif";
+                    plst = lst = 0;
+                }, 2000);
+            }
+            else
+                plst = lst = 0;
+        }
+    </script>
+</body>
+</html>
