@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+        <label for="name"><b>Enter your name: </b></label>
+        <input type="text" id="name">
+        <br><br><br>
+        <label for="age"><b>Enter your age: </b></label>
+        <input type="text" id="age">
+        <br><br><br>
+        <label for=""><b>Select your Gender: </b></label>
+        <br><br><br>
+        <input type="radio" id="male" name="gender">
+        <label for="male"><img src="Tasks\Task Resources\cookies\1.jpg" alt="male"></label>
+        <input type="radio" id="female" name="gender">
+        <label for="female"><img src="Tasks\Task Resources\cookies\2.jpg" alt="female"></label>
+        <br><br><br>
+        <label for="colors"><b>Select your favorite color: </b></label>
+        <select id="colors" name="colors">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+        </select>
+        <br><br><br><br>
+        <input type="button" value="register" onclick="saveGo()">
+    </div>
+        
+    <script src="cookies.js"></script>
+    <script>
+        function saveGo()
+        {
+            try
+            {   
+                setCookie("name", document.getElementById("name").value)
+                setCookie("age", document.getElementById("age").value)
+                
+                let genderRadios = document.getElementsByName("gender");
+                if (genderRadios[0].checked)
+                    setCookie("image", genderRadios[0].labels[0].children[0].getAttribute("src"))
+                if (genderRadios[1].checked)
+                    setCookie("image", genderRadios[1].labels[0].children[0].getAttribute("src"))
+                
+                setCookie("color", document.getElementById("colors").value)
+                document.location.replace("profile.html")
+            } catch (error)
+            {
+                alert(error.message)
+            }
+        }
+    </script>
+</body>
+</html>

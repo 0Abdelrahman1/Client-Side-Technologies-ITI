@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function errorTest()
+        {
+            if (arguments.length != 2) throw new Error("Incorrect Number of Arguments");
+        }
+
+        try
+        {
+            errorTest(1, 2);
+        }
+        catch(error)
+        {
+            alert(error.message);
+        }
+        try
+        {
+            errorTest();
+        }
+        catch(error)
+        {
+            alert(error.message);
+        }
+        try
+        {
+            errorTest(1,2,3);
+        }
+        catch(error)
+        {
+            alert(error.message);
+        }
+    </script>
+</body>
+</html>

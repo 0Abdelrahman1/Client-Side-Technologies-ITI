@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box
+        {
+            height: 500px;
+            width: 500px;
+            border-style: outset;
+            border-color: blueviolet;
+            border-width: 2px;
+            position: relative;
+        }
+        #feather
+        {
+            position: absolute;
+            top: 45%;
+        }
+        #flower
+        {
+            position: absolute;
+            top: 45%;
+        }
+        #top
+        {
+            position: absolute;
+            right: 45%;
+        }
+        p
+        {
+            color:blue;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <img src="Tasks\Task Resources\movingPic\icon1.gif" id="feather">
+        <img src="Tasks\Task Resources\movingPic\icon2.gif" id="flower">
+        <img src="Tasks\Task Resources\movingPic\TOP.JPG" id="top">
+    </div>
+    <input type="button" value="go" onclick="func(this)">
+    <input type="button" value="reset" onclick="reset()">
+    <br><br><br>
+    <p>&ltimg src="icon1.gif" style="left: <b>px</b>"></p>
+    <p>&ltimg src="icon2.gif" style="left: <b>px</b>"></p>
+
+    <script>
+        var Feather = document.getElementById("feather");
+        var Flower = document.getElementById("flower");
+        var Top = document.getElementById("top");
+        var bs = document.getElementsByTagName("b");
+        console.log(bs);
+        let featherDir = -2;
+        let flowerDir = -2;
+        let topDir = -2;
+
+        reset();
+        function reset()
+        {
+            Feather.style.left = "0px";
+            Flower.style.right = "0px";
+            Top.style.bottom = "0px";
+        }
+        function moveFeather()
+        {
+            featherDir *= -1;
+            featherId = setInterval(function()
+            {
+                let left = parseInt(getComputedStyle(Feather).left);
+                let right = parseInt(getComputedStyle(Feather).right);
+                if (left <= 0)
+                    featherDir = 2;
+                if (right <= 0)
+                    featherDir = -2;
+                Feather.style.left = left + featherDir + "px";
+                bs[0].innerText = `${left}px`;
+            }, 10)
+        }
+        function moveFlower()
+        {
+            flowerDir *= -1;
+            flowerId = setInterval(function()
+            {
+                let left = parseInt(getComputedStyle(Flower).left);
+                let right = parseInt(getComputedStyle(Flower).right);
+                if (left <= 0)
+                    flowerDir = -2;
+                if (right <= 0)
+                    flowerDir = 2;
+                Flower.style.right = right + flowerDir + "px";
+                bs[1].innerText = `${left}px`;
+            }, 10)
+        }
+        function moveTop()
+        {
+            topDir *= -1;
+            topId = setInterval(function()
+            {
+                let up = parseInt(getComputedStyle(Top).top);
+                let down = parseInt(getComputedStyle(Top).bottom);
+                if (up <= 0)
+                    topDir = -2;
+                if (down <= 0)
+                    topDir = 2;
+                Top.style.bottom = down + topDir + "px";
+            }, 10)
+        }
+
+        function func(elm)
+        {
+            switch (elm.value)
+            {
+                case "go":
+                    moveFeather();
+                    moveFlower();
+                    moveTop();
+                    elm.value = "stop";
+                    break;
+                case "stop":
+                    clearInterval(featherId);
+                    clearInterval(flowerId);
+                    clearInterval(topId);
+                    elm.value = 'go';
+                    break;
+            }
+        }
+
+    </script>
+</body>
+</html>

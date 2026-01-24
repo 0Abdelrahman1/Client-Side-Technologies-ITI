@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <img src="">
+        <span id="text"><strong>Welcome</strong> <b></b>, you Have visited this site <b></b> times :)</span>
+    </div>
+    <script src="cookies.js"></script>
+    <script>
+        let tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        
+        if (!hasCookie("visitCount"))
+            setCookie("visitCount", 0, tomorrow);
+        setCookie("visitCount", Number(getCookie("visitCount")) + 1, tomorrow)
+
+        document.images[0].src = getCookie("image");
+        let t = document.getElementsByTagName('b');
+        t[0].innerText = getCookie("name");
+        t[0].style.fontSize = getCookie("age") + "px"
+        t[0].style.color = getCookie("color")
+        t[1].innerText = getCookie("visitCount");
+        t[1].style.cssText = t[0].style.cssText;
+        document.getElementById("container").style.display = "flex"
+        document.getElementById("container").style.alignItems = "center"
+    </script>
+</body>
+</html>
