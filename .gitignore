@@ -1,0 +1,23 @@
+########################
+# 1) Ignore everything
+########################
+*
+!.gitignore
+
+########################
+# 2) Allow Day folders
+########################
+!Day */
+
+########################
+# 3) Inside Day folders:
+#    allow only Lab Apply
+########################
+Day */**
+!Day */Lab Apply/
+!Day */Lab Apply/**
+
+# No .pdf allowed
+*.pdf
+
+
